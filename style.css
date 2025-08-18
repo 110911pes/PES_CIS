@@ -1,0 +1,390 @@
+/* Reset + Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #e0e5ec;
+}
+
+/* Page Layout */
+.page-container {
+  display: flex;
+  min-height: 80vh;
+}
+
+/* =============== LEFT SIDE (Image Collage) =============== */
+.image-grid {
+  flex: 1;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 220px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Shuffle Animations */
+.shuffle-out {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.shuffle-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* =============== RIGHT SIDE (Login Card) =============== */
+.login-card {
+  flex: 1;
+  max-width: 380px;
+  background: #e0e5ec;
+  padding: 2rem;
+  border-radius: 20px;
+  margin: auto 4vw auto auto; /* Pushes to the right */
+  box-shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff;
+  text-align: center;
+}
+
+.school-logo {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+h1 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 0.8rem;
+  border: none;
+  border-radius: 12px;
+  box-shadow: inset 3px 3px 6px #a3b1c6,
+              inset -3px -3px 6px #ffffff;
+  font-size: 0.9rem;
+}
+
+#error-message {
+  font-size: 0.85rem;
+  color: red;
+  margin-bottom: 0.5rem;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background: linear-gradient(145deg, #4facfe, #00f2fe);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 3px 3px 6px #a3b1c6,
+              -3px -3px 6px #ffffff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background: linear-gradient(145deg, #00f2fe, #4facfe);
+}
+
+.footer {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  color: #777;
+}
+
+/* =============== Responsive =============== */
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column;
+  }
+  .login-card {
+    margin: 2rem auto;
+  }
+  .image-grid img {
+    height: 180px;
+  }
+}
+
+.dashboard {
+  text-align: center;
+  padding: 2rem;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Flexible columns */
+  gap: 1rem;
+  max-width: 1000px; /* Wider area */
+  margin: 2rem auto;
+}
+
+
+.button-grid button {
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: #e0e5ec;
+  box-shadow: 6px 6px 12px #a3b1c6, -6px -6px 12px #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button-grid button:hover {
+  transform: translateY(-3px);
+  box-shadow: 4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.category {
+  background: #e0e5ec;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 6px 6px 12px #a3b1c6, -6px -6px 12px #ffffff;
+  text-align: center;
+}
+
+.category h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.category button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: #e0e5ec;
+  box-shadow: 4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category button:hover {
+  transform: translateY(-3px);
+  box-shadow: 2px 2px 6px #a3b1c6, -2px -2px 6px #ffffff;
+}
+
+/* Responsive: stack columns on small screens */
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.button-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.sub-buttons {
+  margin-left: 20px; /* indent */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.sub-buttons button {
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  background: #f0f0f0;
+}
+.inactive {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+/* Make inactive button look like a header */
+.inactive {
+  background: #ddd;
+  color: #333;
+  font-weight: bold;
+  cursor: default;
+  pointer-events: none; /* disables clicks */
+}
+
+/* BUTTON GRID (default for sections) */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+/* BUTTONS */
+.button-grid button {
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: #e0e5ec;
+  box-shadow: 6px 6px 12px #a3b1c6, -6px -6px 12px #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button-grid button:hover {
+  transform: translateY(-3px);
+  box-shadow: 4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff;
+}
+
+/* GROUPED BUTTONS (for sub-sections) */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Title button (not clickable) */
+.inactive {
+  background: #ddd !important;
+  color: #333 !important;
+  font-weight: bold;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Sub-buttons under inactive title */
+.sub-buttons {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sub-buttons button {
+  background: #f0f0f0;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+}
+/* Header styling */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #01510a;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.school-logo {
+  width: 80px; /* adjust as needed */
+  height: auto;
+  margin-right: 20px;
+}
+
+.header-text h1 {
+  margin: 0;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.header-text h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: white;
+  font-weight: normal;
+}
+/* ================= HEADER ================= */
+.site-header {
+  display: flex;
+  justify-content: space-between; /* left = logo/title, right = user info */
+  align-items: Left;
+  background: #01510a;
+  color: white;
+  padding: 12px 24px;
+}
+
+/* Left side: Logo + School Title */
+.header-left {
+  display: flex;
+  align-items: Left;
+  gap: 12px;
+}
+
+.school-logo {
+  height: 60px;
+  width: auto;
+}
+
+.site-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-title h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #fff;
+}
+
+.site-title h2 {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 400;
+  color: #f0f0f0;
+}
+
+/* Right side: Welcome + Logout */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+}
+
+.header-right span {
+  font-weight: 500;
+}
+
+.logout-btn {
+  background: #4067d2;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background: #e63939;
+}

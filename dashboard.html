@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PES-CIS | Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+  <header class="site-header">
+  <div class="header-left">
+    <img src="pes-logo.png" alt="School Logo" class="school-logo" />
+    <div class="site-title">
+      <h1>Panitian Elementary School - 110911</h1>
+      <h2>Central Information System Dashboard</h2>
+    </div>
+  </div>
+  <div class="header-right">
+    <span>Welcome, <span id="user-display"></span></span>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</header>
+<body>
+  <div class="dashboard">
+    <p>Select a resource below:</p>
+
+    <!-- Section: Enrollment & Schedules -->
+   <h2>📊 Enrollment and Key Performance Indicators</h2>
+     <div class="button-grid">
+
+      <!-- Enrollment with sub-buttons -->
+        <div class="button-group">
+            <button class="inactive">Enrollment SY 2025-2026</button>
+              <div class="sub-buttons">
+                <button onclick="openLink('https://docs.google.com/spreadsheets/d/1e834vh-6yGtvki6OtF0QRbMTnrxaFkUkSGteSWlQGkI/edit?gid=0#gid=0')">OVERALL</button>
+                <button onclick="openLink('https://docs.google.com/spreadsheets/d/14UFU9RlPIk2Eqfc9Rkx80hZqzqI4aLe3boLX40MaWns/edit?gid=2071504576#gid=2071504576')">By Class Adviser</button>
+              </div>
+        </div>
+        <div class="button-group">
+            <button class="inactive"> SNED & IP SY 2025-2026</button>
+              <div class="sub-buttons">
+                <button onclick="openLink('...')">SNED</button>
+                <button onclick="openLink('...')">Indigenous People</button>
+              </div>
+        </div>
+          <button onclick="openLink('https://docs.google.com/...')">Enrollment SY 2024-2025</button>
+          <button onclick="openLink('https://docs.google.com/...')">Enrollment SY 2023-2024</button>
+          <button onclick="openLink('https://docs.google.com/...')">Key Performance Indicators</button>
+        </div>
+
+    <!-- Section: Inventory & Submission -->
+    <h2>📁 Administrative Forms, Personnel, Reports and Issuances</h2>
+    <div class="button-grid">
+      <div class="button-group">
+            <button class="inactive">Administrative Forms</button>
+              <div class="sub-buttons">
+                <button onclick="openLink('https://drive.google.com/drive/u/0/folders/1ZeYkK87eTmedljiwcNuOhVzGSGf4JAbt')">Requirements</button>
+                <button onclick="openLink('https://drive.google.com/drive/u/0/folders/1ViLMPMSRpvqIiusuaXW_glR3BFPA9pyk')">Downloadable Forms</button>
+              </div>
+        </div>
+        <div class="button-group">
+            <button class="inactive"> RBPMS / PMES</button>
+              <div class="sub-buttons">
+                <button onclick="openLink('https://drive.google.com/drive/folders/1ERYH9co0ITBuH0a7SN-KrMk5VZB-ivhLVptFu3zYftM3JIicMs166edZrPA6vpCezaKqGIK9?usp=sharing')">IPCRF</button>
+                <button onclick="openLink('https://drive.google.com/drive/folders/1sOYzgTTDQFgyEHfdqCfgLrTFfcHWYX1l?usp=sharing')">OPCRF MOVs</button>
+              </div>
+        </div>
+        <div class="button-group">
+            <button class="inactive"> Teaching & Non-Teaching Personnel</button>
+              <div class="sub-buttons">
+                <button onclick="openLink('...')">Personnel Profile</button>
+                <button onclick="openLink('...')">Training Needs</button>
+              </div>
+        </div>
+          <button onclick="openLink('https://drive.google.com/drive/folders/14SNBKN2RHXvg47HQkKqFmRFPTdipMEdq?usp=sharing')">School Memos & Advisories</button>
+          <button onclick="openLink('https://docs.google.com/spreadsheets/d/1m641-By37jBTeiUzP3eDb3J_mMpq3u7VCiXP1oJtAXw/edit?usp=sharing')">Property Inventory</button>
+        </div>
+    </div>
+
+    <!-- Section: Calendar & Reports -->
+    <h2>🗓 School Innovations</h2>
+    <div class="button-grid">
+      <div class="button-group">
+            <button class="inactive">DLL/DLP Facility</button>
+              <div class="sub-buttons">
+                <button onclick="openLink('https://bit.ly/pesDLLP')">Submmision Link</button>
+                <button onclick="openLink('https://bit.ly/pesDLLaccess')">Monitoring and Inspection</button>
+                <button onclick="openLink('https://bit.ly/pesDLLPview')">Reflection Log</button>
+              </div>
+        </div>
+        <div class="button-group">
+            <button class="inactive"> Learning Resources Repository</button>
+              <div class="sub-buttons">
+                <button onclick="openLink('https://pes110911.github.io/PES_LRR/')">LR Portal</button>
+                <button onclick="openLink('https://drive.google.com/drive/u/1/folders/1_LdAl5WG3BaQI3bmQup1MPIA8J9nsg5m')">Uploading Drive</button>
+              </div>
+        </div>
+    </div>
+
+    <!-- Section: External Links -->
+    <h2>🌐 Financial Reports, Plans, Programs, Program, projects and Activities</h2>
+    <div class="button-grid">
+      <div class="button-group">
+            <button class="inactive">Liquidation Reports</button>
+              <div class="sub-buttons">
+                <button onclick="openLink('...')">MOOE FY 2025-2026</button>
+                <button onclick="openLink('...')">MOOE FY 2024-2025</button>
+                <button onclick="openLink('...')">MOOE FY 2023-2024</button>
+                <button onclick="openLink('...')">Other PSF</button>
+              </div>
+        </div>
+        <div class="button-group">
+            <button class="inactive"> Plans,Projects & Activities</button>
+              <div class="sub-buttons">
+                <button onclick="openLink('...')">Annual Implementation Plan</button>
+                <button onclick="openLink('...')">Annual Procurement Plan</button>
+                <button onclick="openLink('...')">Work & Financial Plan</button>
+                <button onclick="openLink('...')">School Operating Budget</button>
+              </div>
+        </div>
+    </div>
+
+      <h2>🌐 Official Links</h2>
+    <div class="button-grid">
+      <button onclick="openLink('https://www.deped.gov.ph/')">DepEd Website</button>
+      <button onclick="openLink('https://depedpalawan.com.ph/')">DepEd Palawan Website</button>
+      <button onclick="openLink('https://lis.deped.gov.ph/uis/login')">Learner Information System</button>
+      <button onclick="openLink('https://sites.google.com/deped.gov.ph/panitianelementaryschool-11091/home')">School Website</button>
+      <button onclick="openLink('https://www.facebook.com/110911PES')">School Facebook Page</button>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
