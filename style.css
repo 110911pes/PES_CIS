@@ -388,3 +388,18 @@ input {
 .logout-btn:hover {
   background: #e63939;
 }
+
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column;
+  }
+
+  .login-card {
+    order: -1; /* Put login card at the top */
+    margin: 2rem auto; /* Center and give spacing */
+  }
+
+  .image-grid {
+    order: 0;
+  }
+}
