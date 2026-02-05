@@ -5,6 +5,232 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PES-CIS | Dashboard</title>
   <link rel="stylesheet" href="style.css"/>
+  
+  <!-- Transparency Portal Styles - ONLY FOR MODAL -->
+  <style>
+    /* Modal Overlay */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 9999;
+      overflow-y: auto;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Modal Content */
+    .modal-content {
+      position: relative;
+      max-width: 1100px;
+      margin: 40px auto;
+      background: #f2f5f8;
+      border-radius: 10px;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from { 
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to { 
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Close Button */
+    .modal-close {
+      position: sticky;
+      top: 10px;
+      right: 10px;
+      float: right;
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 10000;
+      margin: 10px;
+      transition: all 0.2s ease;
+      font-weight: bold;
+    }
+
+    .modal-close:hover {
+      background: #c82333;
+      transform: scale(1.05);
+    }
+
+    /* Transparency Portal Header */
+    .transparency-header {
+      background: linear-gradient(rgba(0, 39, 4, 0.988), rgba(0, 39, 4, 0.988)),
+                  url('https://images.unsplash.com/photo-1581091012184-7f0c71d4c45c') center/cover;
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .transparency-header h1 {
+      margin: 0 0 10px 0;
+      font-size: 28px;
+      color: #ffffff;
+    }
+
+    .transparency-header p {
+      margin: 0;
+      font-size: 16px;
+      color: #d9ff04;
+      font-weight: bold;
+    }
+
+    /* Transparency Container */
+    .transparency-container {
+      padding: 30px 20px;
+    }
+
+    .transparency-section {
+      background: #fff;
+      margin-bottom: 25px;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.1);
+    }
+
+    .transparency-section h2 {
+      margin-top: 0;
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    /* Button Grid */
+    .transparency-button-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    /* Fund Buttons */
+    .transparency-fund-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #004a99 0%, #003366 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,.1);
+      border: 2px solid transparent;
+    }
+
+    .transparency-fund-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,.2);
+      border-color: #013201;
+      background: linear-gradient(135deg, #013201 0%, #025a02 100%);
+    }
+
+    .transparency-fund-button:focus {
+      outline: 3px solid #013201;
+      outline-offset: 3px;
+    }
+
+    .fund-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .fund-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .fund-subtitle {
+      font-size: 14px;
+      opacity: 0.9;
+      display: block;
+    }
+
+    /* Transparency Footer */
+    .transparency-footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 25px 10px;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .transparency-footer h3 {
+      margin-top: 0;
+    }
+
+    .transparency-footer-buttons a {
+      display: inline-block;
+      margin: 8px;
+      padding: 10px 16px;
+      background: #ffffff;
+      color: #003366;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .transparency-footer-buttons a:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .modal-content {
+        margin: 20px;
+        border-radius: 8px;
+      }
+
+      .transparency-header {
+        padding: 30px 15px;
+      }
+
+      .transparency-header h1 {
+        font-size: 22px;
+      }
+
+      .transparency-button-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .transparency-footer-buttons a {
+        display: block;
+        margin: 8px auto;
+        max-width: 300px;
+      }
+    }
+  </style>
 </head>
 
   <header class="site-header">
@@ -30,22 +256,22 @@
 
       <!-- Enrollment with sub-buttons -->
         <div class="button-group">
-            <button class="inactive">Enrollment SY 2025-2026</button>
+            <button class="inactive">CURRENT SY ENROLLMENT</button>
               <div class="sub-buttons">
                 <button onclick="openLink('https://docs.google.com/spreadsheets/d/1e834vh-6yGtvki6OtF0QRbMTnrxaFkUkSGteSWlQGkI/edit?gid=0#gid=0')">OVERALL</button>
                 <button onclick="openLink('https://docs.google.com/spreadsheets/d/14UFU9RlPIk2Eqfc9Rkx80hZqzqI4aLe3boLX40MaWns/edit?gid=2071504576#gid=2071504576')">By Class Adviser</button>
               </div>
         </div>
         <div class="button-group">
-            <button class="inactive"> SNED & IP SY 2025-2026</button>
+            <button class="inactive"> SNED, IP & MUSLIM LEARNERS ENROLLMENT</button>
               <div class="sub-buttons">
-                <button onclick="openLink('...')">SNED</button>
-                <button onclick="openLink('...')">Indigenous People</button>
+                <button onclick="openLink('https://docs.google.com/spreadsheets/d/15VDCnUB9vKkDsc3p6-T5m7cBERYQff6_vx-MhIBJKRI/edit?usp=sharing')">SNED</button>
+                <button onclick="openLink('https://docs.google.com/spreadsheets/d/1pCTsq9XDS8qQxYuSeJshM8o1dACeUHs424u8ctwf9h8/edit?usp=sharing')">Indigenous People</button>
+                <button onclick="openLink('https://docs.google.com/spreadsheets/d/1dVrUcOGygmMCkSoWrhvbZm4Y4nWTeiU05sMcKdPFZzk/edit?usp=sharing')">Muslim Learners</button>
               </div>
         </div>
-          <button onclick="openLink('https://docs.google.com/...')">Enrollment SY 2024-2025</button>
-          <button onclick="openLink('https://docs.google.com/...')">Enrollment SY 2023-2024</button>
-          <button onclick="openLink('https://docs.google.com/...')">Key Performance Indicators</button>
+          <button onclick="openLink('https://docs.google.com/spreadsheets/d/14X-BrdL7O10DCpTV80OrPPhCz085ajmDZmWdD1cs7oE/edit?usp=sharing')">PREVIOUS SCHOOL YEARS ENROLLMENT</button>
+          <button onclick="openLink('https://docs.google.com/spreadsheets/d/1U5Ftd15qZfaAHoV8qQWNN4qTAGn0PrGjvJW7bdYBKzo/edit?usp=sharing')">Key Performance Indicators</button>
         </div>
 
     <!-- Section: Inventory & Submission -->
@@ -148,11 +374,7 @@
     <h2>💰 Financial Reports, Plans, Programs, Projects, Activities</h2>
     <div class="button-grid">
       <div class="button-group">
-            <button class="inactive">Liquidation Reports</button>
-              <div class="sub-buttons">
-                <button onclick="openLink('https://drive.google.com/drive/folders/1S7gi4JUK86S8NIfQAQ-nTPpnqqW9KwBl?usp=sharing')">Maintenance and Other Operating Expenses</button>
-                <button onclick="openLink('https://drive.google.com/drive/folders/15CPMYtBqzDxriqZF90d14mnD-AlLN3ZO?usp=sharing')">Other PSF</button>
-              </div>
+                <button onclick="openTransparencyPortal()">📊 Financial Transparency Portal</button>
         </div>
         <div class="button-group">
             <button class="inactive"> Plans,Projects & Activities</button>
@@ -179,8 +401,101 @@
     </div>
   </div>
 
+  <!-- TRANSPARENCY PORTAL MODAL -->
+  <div id="transparencyModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeTransparencyPortal()">✕ Close</button>
+      
+      <div class="transparency-header">
+        <h1>Panitian Elementary School Financial Transparency</h1>
+        <p>Promoting Fiscal Responsibility, Transparency, and Accountability</p>
+      </div>
+
+      <div class="transparency-container">
+
+        <!-- FUND BUTTONS - Direct Links -->
+        <div class="transparency-section">
+          <h2>📂 Financial Reports by Fund Type</h2>
+          <p style="color: #666; margin-bottom: 20px;">Click on any fund type below to access the financial reports:</p>
+          
+          <div class="transparency-button-grid">
+            <a href="https://drive.google.com/drive/folders/1zUyoUFgZVTfACyo8iLae4CAXltzj5Z88?usp=sharing" target="_blank" rel="noopener noreferrer" class="transparency-fund-button">
+              <span class="fund-icon">📘</span>
+              <span class="fund-title">School MOOE</span>
+              <span class="fund-subtitle">Maintenance & Other Operating Expenses</span>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1fJmweXl0dpIuqpmFTsZXY3IemyV3ctaE?usp=sharing" target="_blank" rel="noopener noreferrer" class="transparency-fund-button">
+              <span class="fund-icon">👨‍👩‍👧‍👦</span>
+              <span class="fund-title">General PTA Funds</span>
+              <span class="fund-subtitle">Parent-Teacher Association</span>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/15CPMYtBqzDxriqZF90d14mnD-AlLN3ZO?usp=sharing" target="_blank" rel="noopener noreferrer" class="transparency-fund-button">
+              <span class="fund-icon">🎯</span>
+              <span class="fund-title">Other Program Support Funds</span>
+              <span class="fund-subtitle">Special Programs & Projects</span>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1MVP10AjS9QjzgjPGmjy34aoStEqP0j6z?usp=sharing" target="_blank" rel="noopener noreferrer" class="transparency-fund-button">
+              <span class="fund-icon">♿</span>
+              <span class="fund-title">Special Education Funds</span>
+              <span class="fund-subtitle">SPED Programs</span>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1qGNliOwBSFhTvKWqjwVyVivMUXk79h1C?usp=sharing" target="_blank" rel="noopener noreferrer" class="transparency-fund-button">
+              <span class="fund-icon">🏛️</span>
+              <span class="fund-title">Barangay / LGU Support Funds</span>
+              <span class="fund-subtitle">Local Government Support</span>
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1qGNliOwBSFhTvKWqjwVyVivMUXk79h1C?usp=sharing" target="_blank" rel="noopener noreferrer" class="transparency-fund-button">
+              <span class="fund-icon">📊</span>
+              <span class="fund-title">Canteen Funds</span>
+              <span class="fund-subtitle">School Managed Canteen</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="transparency-footer">
+        <h3>Stay Informed and Engaged</h3>
+        <div class="transparency-footer-buttons">
+        <p>© 2025 | School Transparency Portal</p>
+      </div>
+    </div>
+  </div>
+
   <script src="dashboard.js"></script>
+  
+  <!-- TRANSPARENCY PORTAL SCRIPT -->
+  <script>
+    // Function to open the transparency portal
+    function openTransparencyPortal() {
+      document.getElementById('transparencyModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Function to close the transparency portal
+    function closeTransparencyPortal() {
+      document.getElementById('transparencyModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('transparencyModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeTransparencyPortal();
+      }
+    });
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeTransparencyPortal();
+      }
+    });
+  </script>
 </body>
 </html>
-
-
